@@ -21,7 +21,7 @@ module SlackMarkdown
 
       def image_filter(text)
         text.gsub(IMAGE_PATTERN) do
-          "<img src=\"#{$4}\" alt=\"#{$2}\" />"
+          "<a href=\"#{$4}\" title=\"#{$2}\">#{$2}</a>"
         end
       end
 
