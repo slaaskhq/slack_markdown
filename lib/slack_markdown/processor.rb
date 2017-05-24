@@ -2,6 +2,7 @@
 
 require 'html/pipeline'
 require 'slack_markdown/filters/convert_filter'
+require 'slack_markdown/filters/image_filter'
 require 'slack_markdown/filters/multiple_quote_filter'
 require 'slack_markdown/filters/quote_filter'
 require 'slack_markdown/filters/multiple_code_filter'
@@ -20,7 +21,8 @@ module SlackMarkdown
 
     def filters
       @filters ||= [
-        SlackMarkdown::Filters::ConvertFilter, # must first run
+        SlackMarkdown::Filters::ConvertFilter,
+        SlackMarkdown::Filters::ImageFilter,
         SlackMarkdown::Filters::MultipleQuoteFilter,
         SlackMarkdown::Filters::QuoteFilter,
         SlackMarkdown::Filters::MultipleCodeFilter,
