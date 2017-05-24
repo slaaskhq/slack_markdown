@@ -12,7 +12,6 @@ module SlackMarkdown
         doc.search('.//text()').each do |node|
           content = node.to_html
           next if has_ancestor?(node, ignored_ancestor_tags)
-          next unless content.include?('*')
           html = image_filter(content)
           next if html == content
           node.replace(html)
